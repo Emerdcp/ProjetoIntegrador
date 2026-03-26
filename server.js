@@ -1,8 +1,21 @@
-require('dotenv').config();
-const app = require('./src/app');
+const express = require("express");
+const app = express();
+const path = require("path");
 
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${PORT}`);
+// 🔥 IMPORTA APP
+const sistemaApp = require("./sistema/app");
+
+// 🔥 PRIMEIRO API
+app.use("/", sistemaApp);
+
+// 🔥 DEPOIS ARQUIVOS
+app.use(express.static(path.join(__dirname, "sistema")));
+
+// 🔥 UPLOADS
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+app.listen(3000, () => {
+    console.log("Servidor rodando em http://localhost:3000");
 });

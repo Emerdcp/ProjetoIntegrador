@@ -1,11 +1,131 @@
-SistemaERP-Node/
+# 🚀 Etapa 1 — O que você precisa para o Node funcionar
+
+Antes de pensar no seu sistema, você precisa ter o **ambiente Node pronto**.
+
+## ✅ 1. Instalar o Node.js
+
+Se ainda não tiver:
+
+* Baixar em: Node.js
+* Instalar normalmente
+
+Depois testa no terminal:
+
+```bash
+node -v
+npm -v
+```
+
+Se aparecer versão → ✅ ok
+
+---
+
+## ✅ 2. Criar o projeto
+
+Na pasta onde você quer o sistema:
+
+```bash
+mkdir projetointegrador
+cd projetointegrador
+```
+
+---
+
+## ✅ 3. Inicializar o projeto Node
+
+```bash
+npm init -y
+```
+
+Isso cria o:
+
+📄 `package.json`
+
+---
+
+## ✅ 4. Instalar dependências essenciais
+
+Para um sistema web básico:
+
+```bash
+npm install express
+```
+
+Recomendado também:
+
+```bash
+npm install nodemon --save-dev
+```
+
+📌 O que cada um faz:
+
+* `express` → servidor web
+* `nodemon` → reinicia automaticamente o servidor
+
+---
+
+## ✅ 5. Criar estrutura de pastas
+
+Crie exatamente assim:
+
+```
+projetointegrador/
 │
-├── src/
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
+├── sistema/
 │   ├── config/
+│   ├── controller/
+│   ├── css/
+│   ├── js/
+│   ├── pages/
+│   ├── uploads/
 │   └── app.js
 │
 ├── package.json
 └── server.js
+```
+
+## ✅ 6. Rodar o projeto
+
+No terminal:
+
+```bash
+node server.js
+```
+
+ou com nodemon:
+
+```bash
+npx nodemon server.js
+```
+
+---
+
+## ✅ 7. Acessar
+
+Abra no navegador:
+
+```
+http://localhost:3000
+```
+
+## 🚀 ETAPA 8 — Ajuste da estrutura
+
+Fica assim:
+
+projetointegrador/
+│
+├── sistema/
+│   ├── config/
+│   │   └── db.js       ✅ NOVO
+│   ├── controller/
+│   │   └── produtos.js ✅ NOVO
+│   ├── css/
+│   ├── img/            ✅ PARA LOGO
+│   ├── js/
+│   │   └── index.js    ✅ vamos ajustar depois
+│   ├── pages/
+│   │   └── index.html  ✅ SUA TELA
+│   └── app.js
+│
+├── server.js
+└── package.json

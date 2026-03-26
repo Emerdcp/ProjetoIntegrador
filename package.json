@@ -4,7 +4,8 @@
   "description": "SistemaERP-Node/\r │\r ├── src/\r │   ├── controllers/\r │   ├── routes/\r │   ├── models/\r │   ├── config/\r │   └── app.js\r │\r ├── package.json\r └── server.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
