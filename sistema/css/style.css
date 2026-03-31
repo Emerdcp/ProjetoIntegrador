@@ -9,8 +9,33 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: #f6f6f6;
-    padding-top: 60px; /* 🔥 altura do menu */
+    /* padding-top: 60px; 🔥 altura do menu */
+    /* margin-left: 230px; */
+    /* margin-top: 60px; */
+    background: #f4f6f9;
+    margin: 0;
+}
+
+/* ESTRUTURA */
+.layout {
+    display: flex;
+}
+
+main {
+    /* margin-left: 230px; */
+    /* margin-top: 80px; espaço do header */
+    padding: 20px;
+    margin-top: 60px;
+}
+
+main h2 {
+    margin-bottom: 20px;
+}
+
+/* ÁREA DIREITA */
+.main-area {
+    margin-left: 230px;
+    width: 100%;
 }
 
 /* ===== HEADER ===== */
@@ -70,6 +95,24 @@ body {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
+
+
+
+.card {
+    border-radius: 12px;
+    border: none;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+
+
 
 /* ===== IMAGEM ===== */
 .produto-card img {
@@ -481,4 +524,119 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+
+
+/* ====================================Página Usuário=================================================*/
+
+table button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-pequeno {
+    width: 18px;
+}
+
+
+/* ====================================Página Header=================================================*/
+
+/* .top-header {
+    position: fixed;
+    top: 0;
+    left: 230px; /* mesma largura do menu 
+    right: 0;
+    height: 60px;
+    background: #1e1e2f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+} */
+
+/* HEADER */
+.top-header {
+    height: 60px;
+    background: #1e1e2f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-logout {
+    background: #ff4d6d;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+
+/* ====================================Página Menu=================================================*/
+
+
+.menu-lateral {
+    width: 230px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1e1e2f, #2a2a40);
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* padding: 20px; */
+}
+
+.menu-lateral a {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.menu-lateral a:hover {
+    background: #ff4d6d;
+    transform: translateX(5px);
+}
+
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    margin: 10px 0;
+}
+
+.menu-titulo {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* ====================================Página Footer=================================================*/
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 230px;
+    right: 0;
+    background: #1e1e2f;
+    color: #aaa;
+    text-align: center;
+    padding: 8px;
 }

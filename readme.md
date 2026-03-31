@@ -116,16 +116,41 @@ projetointegrador/
 │
 ├── sistema/
 │   ├── config/
-│   │   └── db.js       ✅ NOVO
+│   │   └── db.js       
 │   ├── controller/
-│   │   └── produtos.js ✅ NOVO
+│   │   ├── produtos.js 
+│   │   └── usuarios.js  
 │   ├── css/
-│   ├── img/            ✅ PARA LOGO
+│   ├── img/            
 │   ├── js/
-│   │   └── index.js    ✅ vamos ajustar depois
+│   │   └── index.js    
+│   │   └── cadastroUsuario.js  
+|   ├── layout/
+|   │   ├── header.html
+|   │   ├── menu.html
+|   │   └── footer.html
 │   ├── pages/
-│   │   └── index.html  ✅ SUA TELA
+│   │   ├── index.html  
+│   │   └── usuario.html
 │   └── app.js
 │
 ├── server.js
 └── package.json
+
+
+
+🎯 O QUE VAMOS IMPLEMENTAR
+
+✔ login com senha criptografada (bcrypt)
+✔ criação de sessão
+✔ validar usuário logado
+✔ proteger rotas
+✔ controlar acesso por perfil (A, G, O)
+
+🚀 1. INSTALAR DEPENDÊNCIA
+
+No terminal:
+
+```bash
+npm install express-session bcrypt
+```

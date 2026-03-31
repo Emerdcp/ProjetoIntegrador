@@ -1,0 +1,91 @@
+<aside>
+<!-- Menu lateral -->
+<nav class="sidebar" id="sidebar">
+  <div class="logo-area">
+    <a href="#">
+      <img id="logo_restrico" src="../../assets/img/karinaModaLogo.png" alt="Karina Moda Íntima" title="Karina Moda Íntima"
+        class="logo-img-restrito" loading="lazy">
+    </a>
+    <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+  </div>
+
+  <ul class="menu-list">
+    <li><a href="../dashboard/dashboard.php"><img src="../../assets/img/dashboard.png" class="img-menu active"><span
+        class="menu-text">Dashboard</span></a></li>
+    <li class="submenu-wrapper">
+      <a href="#"><img src="../../assets/img/cadastro.png" class="img-menu"><span class="menu-text">Cadastro</span><span
+          class="arrow">▼</span></a>
+      <ul class="submenu">
+        <li><a class="submenu-item active" href="../cadastros/cliente.php"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Cliente</span></a></li>
+        
+        <li><a class="submenu-item active" href="../cadastros/fornecedor.php"><img src="../../assets/img/fornecedor.png"
+              class="img-menu"><span class="menu-text">Fornecedor</span></a></li>
+
+        <li><a class="submenu-item active" href="../cadastros/categoria.php"><img src="../../assets/img/categoria.png"
+              class="img-menu"><span class="menu-text">Categorias</span></a></li>
+
+        <li><a class="submenu-item active" href="../cadastros/produto.php"><img src="../../assets/img/produto.png"
+              class="img-menu"><span class="menu-text">Produtos</span></a></li>
+
+        <li><a class="submenu-item active" href="../config/usuario.php"><img src="../../assets/img/usuario.png"
+              class="img-menu"><span class="menu-text">Usuário</span></a></li>
+      </ul>
+    </li>
+
+    <li class="submenu-wrapper">
+      <a href="#"><img src="../../assets/img/vendas.png" class="img-menu"><span class="menu-text">Vendas</span><span
+          class="arrow">▼</span></a>
+      <ul class="submenu">
+        <li><a class="submenu-item active" href="../movimentos/venda.php"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Vendas</span></a></li>
+        
+        <!-- <li><a class="submenu-item active" href="../movimentos/historicoVendas.html"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Histórico de Vendas</span></a></li> -->
+
+        <li><a class="submenu-item active" href="../movimentos/pedidosCatalogo.php"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Pedidos do Catálogo</span></a></li>
+      </ul>
+    </li>
+
+    <li class="submenu-wrapper">
+      <a href="#"><img src="../../assets/img/compras.png" class="img-menu"><span class="menu-text">Compras</span><span
+          class="arrow">▼</span></a>
+      <ul class="submenu">
+        <li><a class="submenu-item active" href="../movimentos/compra.php"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Compras</span></a></li>
+        </ul>
+    </li>
+
+    <li class="submenu-wrapper">
+      <a href="#"><img src="../../assets/img/financeiro.png" class="img-menu"><span class="menu-text">Financeiro</span><span
+          class="arrow">▼</span></a>
+      <ul class="submenu">
+        <li><a class="submenu-item active" href="../relatorios/financeiro.html"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Financeiro</span></a></li>
+        
+        <li><a class="submenu-item active" href="../financeiro/contasReceber.html"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Contas a Receber</span></a></li>
+      </ul>
+    </li>
+
+      <li class="submenu-wrapper">
+      <a href="#"><img src="../../assets/img/financeiro.png" class="img-menu"><span class="menu-text">Estoque</span><span
+          class="arrow">▼</span></a>
+      <ul class="submenu">
+        <li><a class="submenu-item active" href="../movimentos/movEstoque.php"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Movimentação Estoque</span></a></li>
+        
+        <!-- <li><a class="submenu-item active" href="../financeiro/contasReceber.html"><img src="../../assets/img/cliente.png"
+              class="img-menu"><span class="menu-text">Contas a Receber</span></a></li> -->
+      </ul>
+    </li>
+
+    <!-- <li><a href="#" onclick="abrirModalLogout()"><img src="../../assets/img/sairMenu.png" class="img-menu"><span
+          class="menu-text">Sair</span></a></li> -->
+  </ul>
+  <button class="logout-btn" onclick="logout()">Sair</button>
+
+</nav>
+
+</aside>

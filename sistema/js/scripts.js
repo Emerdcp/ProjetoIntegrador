@@ -19,3 +19,40 @@ document.addEventListener("click", function(e) {
     }
 
 });
+
+async function fazerLogin() {
+
+    const email = document.getElementById("login_email").value;
+    const senha = document.getElementById("login_senha").value;
+
+    const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, senha })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        console.log(data);
+        alert(data.erro || "Erro ao logar");
+        return;
+    }
+
+    // 🔥 REDIRECIONA
+    window.location.href = "/pages/dashboard.html";
+}
+
+// ===== MENSAGEM PADRÃO =====
+function mostrarMensagem(titulo, texto) {
+    document.getElementById("msgTitulo").innerText = titulo;
+    document.getElementById("msgTexto").innerText = texto;
+
+    document.getElementById("modalMensagem").classList.remove("hidden");
+}
+
+function fecharMensagem() {
+    document.getElementById("modalMensagem").classList.add("hidden");
+}

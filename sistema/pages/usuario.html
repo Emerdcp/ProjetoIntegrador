@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários | Sistema</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="layout">
+        <aside id="menu"></aside>
+        <div class="main-area">
+            <header id="header"></header>
+            <main class="container mt-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Usuários</h2>
+                    <button class="btn btn-primary" onclick="abrirModalUsuario()">+ Novo</button>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Perfil</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaUsuarios"></tbody>
+                </table>
+
+            </main>
+
+            <!-- FOOTER -->
+            <div id="footer"></div>
+        </div>
+    </div>
+
+
+
+    <!-- MODAL USUÁRIO -->
+    <div id="modalUsuario" class="modal-sistema hidden">
+
+        <div class="modal-content-sistema modal-md">
+
+            <h4 id="tituloModalUsuario">Usuário</h4>
+
+            <input type="hidden" id="idUsuario">
+
+            <input type="text" id="usu_nome" class="form-control mb-2" placeholder="Nome">
+            <input type="text" id="usu_documento" class="form-control mb-2" placeholder="Documento">
+
+            <input type="text" id="usu_telefone" class="form-control mb-2" placeholder="Telefone">
+            <input type="email" id="usu_email" class="form-control mb-2" placeholder="Email">
+
+            <select id="usu_perfil" class="form-control mb-2">
+                <option value="A">Administrador</option>
+                <option value="G">Gerente</option>
+                <option value="O">Operador</option>
+            </select>
+
+            <select id="usu_status" class="form-control mb-2">
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+
+            <input type="password" id="usu_senha" class="form-control mb-2" placeholder="Senha">
+
+            <button onclick="salvarUsuario()" class="btn btn-success w-100">Salvar</button>
+            <button onclick="fecharModalUsuario()" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL MENSAGENS -->
+    <div id="modalConfirmacao" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-sm">
+
+            <h4 id="confirmTitulo">Confirmação</h4>
+            <p id="confirmTexto"></p>
+
+            <button id="btnConfirmar" class="btn btn-danger w-100">Confirmar</button>
+            <button onclick="fecharConfirmacao()" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+
+        </div>
+    </div>
+
+    <div id="modalMensagem" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-sm">
+
+            <h4 id="msgTitulo">Mensagem</h4>
+            <p id="msgTexto"></p>
+
+            <button onclick="fecharMensagem()" class="btn btn-primary w-100">OK</button>
+
+        </div>
+    </div>
+
+
+    <!-- JS -->
+    <script src="/js/auth.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/cadastroUsuario.js"></script>
+
+</body>
+
+</html>
