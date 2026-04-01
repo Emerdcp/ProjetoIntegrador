@@ -1,0 +1,122 @@
+/* ================= CLIENTES ================= */
+
+/* TÍTULO */
+main h2 {
+    margin-bottom: 15px;
+}
+
+/* BOTÃO NOVO */
+main button {
+    margin-bottom: 15px;
+}
+
+/* ================= TABELA ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+thead {
+    background: #1e1e2f;
+    color: white;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* LINHA HOVER */
+tbody tr:hover {
+    background: #f9f9f9;
+}
+
+/* ================= AÇÕES ================= */
+
+td button {
+    margin-right: 6px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+td button:hover {
+    transform: scale(1.1);
+}
+
+/* ================= STATUS ================= */
+
+.status-ativo {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inativo {
+    color: red;
+    font-weight: bold;
+}
+
+/* ================= MODAL FORM ================= */
+
+.modal-content-sistema input,
+.modal-content-sistema select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* GRID FORM */
+.modal-content-sistema {
+    display: flex;
+    flex-direction: column;
+}
+
+/* AGRUPAMENTO */
+.modal-content-sistema hr {
+    margin: 15px 0;
+}
+
+/* BOTÕES MODAL */
+.modal-content-sistema button {
+    margin-top: 8px;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px) {
+
+    table {
+        font-size: 12px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    tbody td {
+        display: block;
+        border: none;
+        padding: 6px 0;
+    }
+}

@@ -1,0 +1,63 @@
+/* CARD */
+.card {
+    border-radius: 12px;
+    border: none;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* BOTÃO PADRÃO */
+.btn-primary {
+    background: #ff4d6d;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #e63956;
+}
+
+/* MODAL BASE */
+.modal-sistema {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-content-sistema {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* TAMANHOS */
+.modal-sm { max-width: 400px; }
+.modal-md { max-width: 600px; }
+.modal-lg { max-width: 900px; }
+
+/* ANIMAÇÃO */
+.modal-content-sistema {
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

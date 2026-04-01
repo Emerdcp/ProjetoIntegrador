@@ -1,0 +1,128 @@
+/* HEADER */
+.navbar {
+    padding: 12px 20px;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.logo {
+    height: 40px;
+}
+
+/* BUSCA */
+.busca-box {
+    display: flex;
+    gap: 8px;
+}
+
+.busca-box input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 280px;
+}
+
+.busca-box button {
+    background: #ff4d6d;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* PRODUTOS */
+.pagina-catalogo #produtos {
+    margin-top: 20px;
+}
+
+.produto-card {
+    border-radius: 14px;
+    overflow: hidden;
+    background: white;
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.produto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* IMAGEM */
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.slider img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* SLIDE */
+.produto-slide {
+    display: none;
+}
+
+.produto-slide.ativo {
+    display: block;
+}
+
+/* SETAS */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* BOTÃO */
+.btn-comprar {
+    width: 100%;
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* CARRINHO */
+.carrinho-lateral {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: white;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.carrinho-lateral.ativo {
+    right: 0;
+}
+
+/* GALERIA */
+.galeria-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.galeria-modal img {
+    max-width: 70%;
+    border-radius: 12px;
+}

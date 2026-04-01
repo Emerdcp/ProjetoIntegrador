@@ -1,0 +1,53 @@
+/* ===== DASHBOARD ===== */
+
+.dashboard-container {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CARDS TOPO */
+.dashboard-cards {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.card-dashboard {
+    flex: 1;
+    min-width: 180px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-5px);
+}
+
+.card-dashboard h6 {
+    font-size: 14px;
+    color: #777;
+}
+
+.card-dashboard h6 {
+    font-size: 14px;
+    color: #777;
+}
+
+/* TABELA */
+.dashboard-table {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.dashboard-table h5 {
+    margin-bottom: 15px;
+}

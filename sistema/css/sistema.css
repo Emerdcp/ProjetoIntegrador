@@ -1,0 +1,22 @@
+/* TABELA */
+table button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-pequeno {
+    width: 18px;
+}
+
+/* DASHBOARD */
+.card-dashboard {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.pagina-sistema main {
+    padding: 30px;
+    flex: 1;
+}

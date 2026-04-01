@@ -1,20 +1,22 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 const path = require("path");
 
 // CONTROLLERS
 const catalogo = require("./controller/catalogo");
 const usuarios = require("./controller/usuarios");
 const auth = require("./controller/auth");
+const clientes = require("./controller/clientes");
 
-// ROTAS
-app.use("/api", catalogo);
-app.use("/api", usuarios);
-app.use("/api", auth);
+// ROTAS API
+router.use("/api/catalogo", catalogo);
+router.use("/api/usuarios", usuarios);
+router.use("/api/auth", auth);
+router.use("/api/clientes", clientes);
 
 // INDEX
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "pages", "index.html"));
 });
 
-module.exports = app;
+module.exports = router;
