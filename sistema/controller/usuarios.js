@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
 
 // LISTAR
-router.get("/usuarios", auth, (req, res) => {
+router.get("/", auth, (req, res) => {
 
     const sql = `
         SELECT id, nome, email, perfil, status
@@ -21,7 +21,7 @@ router.get("/usuarios", auth, (req, res) => {
 });
 
 // BUSCAR
-router.get("/usuarios/:id", auth, (req, res) => {
+router.get("/:id", auth, (req, res) => {
 
     const sql = `
         SELECT id, nome, documento, status, telefone, email, perfil
@@ -36,7 +36,7 @@ router.get("/usuarios/:id", auth, (req, res) => {
 });
 
 // SALVAR
-router.post("/usuarios", auth, async (req, res) => {
+router.post("/", auth, async (req, res) => {
 
     const { id, nome, documento, status, telefone, email, perfil, senha } = req.body;
 

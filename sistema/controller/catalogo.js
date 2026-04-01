@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../config/db");
 
 // LISTAR PRODUTOS
-router.get("/catalogo", (req, res) => {
+router.get("/", (req, res) => {
 
     const sql = `
         SELECT 

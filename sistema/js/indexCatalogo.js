@@ -75,6 +75,7 @@ async function carregarCatalogo() {
     } catch (erro) {
 
         console.error("Erro ao carregar catálogo", erro);
+        
 
     }
 
