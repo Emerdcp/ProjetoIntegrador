@@ -1,6 +1,6 @@
 async function verificarLogin() {
 
-    const response = await fetch("/api/sessao");
+    const response = await fetch("/api/auth/sessao");
 
     if (!response.ok) {
         window.location.href = "/";

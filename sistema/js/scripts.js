@@ -25,7 +25,7 @@ async function fazerLogin() {
     const email = document.getElementById("login_email").value;
     const senha = document.getElementById("login_senha").value;
 
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -56,3 +56,4 @@ function mostrarMensagem(titulo, texto) {
 function fecharMensagem() {
     document.getElementById("modalMensagem").classList.add("hidden");
 }
+

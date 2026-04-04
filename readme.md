@@ -154,3 +154,9 @@ No terminal:
 ```bash
 npm install express-session bcrypt
 ```
+
+No terminal, ai na raiz do projeto:
+
+```bash
+npm install multer
+```

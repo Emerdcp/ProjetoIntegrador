@@ -173,6 +173,15 @@ function excluirCliente(id) {
 
 }
 
+function abrirConfirmacao(texto, callback) {
+
+    const confirmar = confirm(texto);
+
+    if (confirmar) {
+        callback();
+    }
+}
+
 async function confirmarExclusaoCliente(id) {
 
     try {
@@ -363,4 +372,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+});
+
+
+// Para confirmação de fecharMensagem
+
+let confirmCallback = null;
+
+function abrirConfirmacao(texto, callback) {
+
+    document.getElementById("confirmTexto").innerText = texto;
+
+    confirmCallback = callback;
+
+    document.getElementById("modalConfirmacao").classList.remove("hidden");
+}
+
+function fecharConfirmacao() {
+    document.getElementById("modalConfirmacao").classList.add("hidden");
+    confirmCallback = null;
+}
+
+document.getElementById("btnConfirmar").addEventListener("click", () => {
+
+    if (confirmCallback) {
+        confirmCallback();
+    }
+
+    fecharConfirmacao();
 });
