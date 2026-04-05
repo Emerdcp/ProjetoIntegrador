@@ -254,3 +254,62 @@
 .carrinho-footer button:hover {
     background: #e63956;
 }
+
+
+
+/* ===== GALERIA MODAL ===== */
+.galeria-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.galeria-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 12px;
+}
+
+/* BOTÃO FECHAR */
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+/* SETAS */
+.seta-modal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.seta-modal:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.seta-modal.prev {
+    left: 20px;
+}
+
+.seta-modal.next {
+    right: 20px;
+}

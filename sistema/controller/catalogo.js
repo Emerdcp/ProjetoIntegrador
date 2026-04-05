@@ -1,35 +1,52 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../config/db");
+// ================= GALERIA =================
 
-// LISTAR PRODUTOS
-router.get("/", (req, res) => {
+let imagensGaleria = [];
+let indexAtual = 0;
 
-    const sql = `
-        SELECT 
-            p.id,
-            c.nome AS categoria,
-            p.nome,
-            p.preco_venda,
-            GROUP_CONCAT(pi.caminho ORDER BY pi.principal DESC) AS imagens
-        FROM produtos p
-        LEFT JOIN produtos_imagens pi 
-            ON pi.produto_id = p.id
-        LEFT JOIN categorias c 
-            ON c.id = p.categoria_id
-        WHERE p.st_registro = 'A'
-        GROUP BY p.id
-        ORDER BY p.nome
-    `;
+// ABRIR
+function abrirGaleria(imagens, index) {
 
-    db.query(sql, (err, result) => {
-        if (err) {
-            return res.status(500).json({ erro: err });
-        }
+    imagensGaleria = imagens;
+    indexAtual = index;
 
-        res.json(result);
-    });
+    document.getElementById("galeriaModal").style.display = "flex";
 
+    atualizarImagem();
+}
+
+// FECHAR
+function fecharGaleria() {
+    document.getElementById("galeriaModal").style.display = "none";
+}
+
+// ATUALIZAR IMG
+function atualizarImagem() {
+    document.getElementById("imgGaleria").src = imagensGaleria[indexAtual];
+}
+
+// TROCAR IMG
+function trocarImagem(direcao) {
+
+    indexAtual += direcao;
+
+    if (indexAtual < 0) indexAtual = imagensGaleria.length - 1;
+    if (indexAtual >= imagensGaleria.length) indexAtual = 0;
+
+    atualizarImagem();
+}
+
+// ESC fecha
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        fecharGaleria();
+    }
 });
 
-module.exports = router;
+// clicar fora fecha
+document.addEventListener("click", function(e) {
+    const modal = document.getElementById("galeriaModal");
+
+    if (modal && e.target === modal) {
+        fecharGaleria();
+    }
+});
