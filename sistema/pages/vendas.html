@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vendas | Sistema</title>
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/sistema.css">
+    <link rel="stylesheet" href="/css/vendas.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="pagina-sistema">
+
+    <div class="layout">
+
+        <aside id="menu"></aside>
+
+        <div class="main-area">
+
+            <header id="header"></header>
+
+            <main class="container mt-4">
+
+                <!-- TOPO -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <h1>Vendas</h1>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" onclick="abrirModalVenda()">+ Novo</button>
+                        <button class="btn btn-secondary" onclick="abrirFiltroVenda()">Filtrar</button>
+                    </div>
+
+                </div>
+
+                <!-- LISTA -->
+                <div class="card-list">
+
+                    <table class="table align-middle">
+
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaVendas"></tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+
+            <div id="footer"></div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL VENDA ================= -->
+    <div id="modalVenda" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-lg">
+
+            <h3 id="tituloModalVenda">Nova Venda</h3>
+
+            <input type="hidden" id="ven_id">
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <label>Cliente</label>
+                    <select id="ven_cliente" class="form-control"></select>
+                </div>
+
+                <div class="col-md-3">
+                    <label>Forma Pagamento</label>
+                    <select id="ven_forma" class="form-control">
+                        <option value="DINHEIRO">Dinheiro</option>
+                        <option value="PIX">Pix</option>
+                        <option value="CARTAO">Cartão</option>
+                        <option value="PRAZO">Prazo</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h4>Itens</h4>
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <select id="ven_produto" class="form-control"></select>
+                </div>
+
+                <div class="col-md-2">
+                    <input type="number" id="ven_qtd" class="form-control" placeholder="Qtd">
+                </div>
+
+                <div class="col-md-2">
+                    <input type="number" id="ven_valor" class="form-control" placeholder="Valor">
+                </div>
+
+                <div class="col-md-2">
+                    <button class="btn btn-success w-100" onclick="addItemVenda()">Adicionar</button>
+                </div>
+
+            </div>
+
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Qtd</th>
+                        <th>Valor</th>
+                        <th>Subtotal</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="itensVenda"></tbody>
+            </table>
+
+            <h4 class="text-end">Total: R$ <span id="totalVenda">0.00</span></h4>
+
+            <div class="modal-actions">
+                <button onclick="salvarVenda()" class="btn btn-success w-100">Salvar</button>
+                <button onclick="fecharModal('modalVenda')" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FILTRO ================= -->
+    <div id="modalFiltroVenda" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-sm">
+
+            <h4>Filtrar Vendas</h4>
+
+            <select id="filtroCliente" class="form-control mb-2"></select>
+
+            <select id="filtroStatus" class="form-control mb-2">
+                <option value="">Todos</option>
+                <option value="A">Aberto</option>
+                <option value="F">Faturado</option>
+                <option value="C">Cancelado</option>
+            </select>
+
+            <input type="date" id="filtroDataInicio" class="form-control mb-2">
+            <input type="date" id="filtroDataFim" class="form-control mb-2">
+
+            <button onclick="aplicarFiltroVenda()" class="btn btn-primary w-100">Aplicar</button>
+            <button onclick="fecharModal('modalFiltroVenda')" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+
+        </div>
+    </div>
+
+    <!-- ================= MENSAGEM ================= -->
+    <div id="modalMensagem" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-sm">
+
+            <h4 id="msgTitulo">Mensagem</h4>
+            <p id="msgTexto"></p>
+
+            <button onclick="fecharMensagem()" class="btn btn-primary w-100">OK</button>
+
+        </div>
+    </div>
+
+    <!-- ================= CONFIRMAÇÃO ================= -->
+    <div id="modalConfirmacao" class="modal-sistema hidden">
+        <div class="modal-content-sistema modal-sm">
+
+            <h4>Confirmação</h4>
+            <p id="confirmTexto"></p>
+
+            <button id="btnConfirmar" class="btn btn-danger w-100">Confirmar</button>
+            <button onclick="fecharConfirmacao()" class="btn btn-secondary w-100 mt-2">Cancelar</button>
+
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/vendas.js"></script>
+
+    <script>
+        carregarMenu();
+        carregarHeader();
+        carregarFooter();
+    </script>
+
+</body>
+</html>

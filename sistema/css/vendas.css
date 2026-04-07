@@ -1,0 +1,66 @@
+/* ===== AJUSTES GERAIS ===== */
+
+#modalVenda h4 {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* ===== ITENS ===== */
+
+#itensVenda td {
+    vertical-align: middle;
+}
+
+#itensVenda button {
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+/* ===== TOTAL ===== */
+
+#totalVenda {
+    font-weight: bold;
+    font-size: 20px;
+    color: #198754; /* verde padrão */
+}
+
+/* ===== INPUTS ITENS ===== */
+
+#ven_qtd,
+#ven_valor {
+    text-align: center;
+}
+
+/* ===== BOTÃO ADICIONAR ===== */
+
+button.btn-success {
+    font-weight: 500;
+}
+
+/* ===== TABELA ===== */
+
+.table thead th {
+    font-weight: 600;
+}
+
+/* ===== MODAL ===== */
+
+.modal-lg {
+    max-width: 900px;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 768px) {
+
+    .modal-lg {
+        max-width: 95%;
+    }
+
+    #totalVenda {
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+    }
+
+}

@@ -10,6 +10,7 @@ const clientes = require("./controller/clientes");
 const categorias = require("./controller/categorias");
 const produtos = require("./controller/produtos");
 const fornecedores = require("./controller/fornecedores");
+const vendas = require("./controller/vendas");
 
 // ROTAS API
 router.use("/api/catalogo", catalogo);
@@ -19,6 +20,7 @@ router.use("/api/clientes", clientes);
 router.use("/api/categorias", categorias);
 router.use("/api/produtos", produtos);
 router.use("/api/fornecedores", fornecedores);
+router.use("/api/vendas", vendas);
 
 // INDEX
 router.get("/", (req, res) => {
@@ -26,6 +28,3 @@ router.get("/", (req, res) => {
 });
 
 module.exports = router;
-
-
-

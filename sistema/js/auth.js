@@ -21,3 +21,13 @@ async function verificarLogin() {
 }
 
 document.addEventListener("DOMContentLoaded", verificarLogin);
+
+function logout() {
+
+    // se tiver token/localStorage
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("token");
+
+    // redireciona para login/index
+    window.location.href = "/pages/index.html";
+}
