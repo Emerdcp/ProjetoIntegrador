@@ -290,16 +290,23 @@ async function finalizarPedido() {
         return;
     }
 
+    // 🔥 AJUSTE AQUI
+    const itensFormatados = carrinho.map(p => ({
+        id: p.id,
+        nome: p.nome,
+        quantidade: Number(p.qtd),
+        preco: Number(p.preco)
+    }));
+
     const pedido = {
         nome,
         telefone,
         pagamento,
-        itens: carrinho
+        itens: itensFormatados
     };
 
     try {
 
-        // 🔥 ALTERADO: PHP → NODE
         const response = await fetch("/api/pedido", {
             method: "POST",
             headers: {
@@ -317,11 +324,20 @@ async function finalizarPedido() {
             mensagem += `📞 Telefone: ${telefone}%0A`;
             mensagem += `💳 Pagamento: ${pagamento}%0A%0A`;
 
+            let total = 0;
+
             carrinho.forEach(p => {
-                mensagem += `- ${p.nome} x${p.qtd}%0A`;
+                const subtotal = p.preco * p.qtd;
+                total += subtotal;
+
+                mensagem += `• ${p.nome}%0A`;
+                mensagem += `  Qtd: ${p.qtd}%0A`;
+                mensagem += `  R$ ${subtotal.toFixed(2)}%0A%0A`;
             });
 
-            const url = `https://wa.me/5519983133025?text=${mensagem}`;
+            mensagem += `💰 Total: R$ ${total.toFixed(2)}`;
+
+            const url = `https://wa.me/5519981082383?text=${mensagem}`;
             window.open(url, "_blank");
 
             localStorage.removeItem("carrinho");

@@ -204,4 +204,82 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+
+// ================= ATUALIZAR =================
+router.put("/:id", (req, res) => {
+    
+    const id = req.params.id;
+    const v = req.body;
+
+    if (!v.cliente_id || !v.itens || !v.itens.length) {
+        return res.status(400).json({
+            success: false,
+            erro: "Cliente ou itens não informados"
+        });
+    }
+
+    let total = 0;
+
+    v.itens.forEach(i => {
+        total += Number(i.subtotal);
+    });
+    
+    const sqlUpdate = `
+        UPDATE vendas SET
+            cliente_id = ?,
+            forma_pagamento = ?,
+            parcelas = ?,
+            intervalo = ?,
+            valor_total = ?
+        WHERE id = ?
+    `;
+
+    db.query(sqlUpdate, [
+        v.cliente_id,
+        v.forma_pagamento,
+        v.parcelas || 1,
+        v.intervalo || 30,
+        total,
+        id
+    ], (err) => {
+
+        if (err) {
+            console.error("Erro atualizar venda:", err);
+            return res.status(500).json(err);
+        }
+
+        // 🔥 REMOVE ITENS ANTIGOS
+        db.query("DELETE FROM vendas_itens WHERE venda_id = ?", [id], (err2) => {
+            
+            if (err2) {
+                console.error("Erro limpar itens:", err2);
+                return res.status(500).json(err2);
+            }
+
+            // 🔥 INSERE NOVOS
+            const sqlItem = `
+            INSERT INTO vendas_itens
+            (venda_id, produto_id, quantidade, valor_unitario, subtotal)
+            VALUES (?, ?, ?, ?, ?)
+            `;
+            
+            v.itens.forEach(item => {
+                
+                db.query(sqlItem, [
+                    id,
+                    item.produto_id,
+                    item.quantidade,
+                    item.valor,
+                    item.subtotal
+                ]);
+            });
+            
+            res.json({ success: true });
+        });
+        
+    });
+    
+});
+
+
 module.exports = router;
