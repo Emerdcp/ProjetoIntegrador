@@ -1,162 +1,309 @@
-# 🚀 Etapa 1 — O que você precisa para o Node funcionar
+# Projeto Integrador
 
-Antes de pensar no seu sistema, você precisa ter o **ambiente Node pronto**.
+> Sistema ERP web para gestão comercial com cadastro de usuários, clientes, fornecedores, produtos, categorias, vendas, compras e controle de estoque.
 
-## ✅ 1. Instalar o Node.js
+## Descrição detalhada
 
-Se ainda não tiver:
+O Projeto Integrador é uma solução de gestão empresarial para lojas que precisam organizar processos de vendas, compras e estoque em uma única plataforma. O sistema oferece:
 
-* Baixar em: Node.js
-* Instalar normalmente
+- cadastro e gerenciamento de usuários
+- controle de clientes, fornecedores e categorias
+- cadastro, edição e listagem de produtos
+- catálogo público com carrinho de compras
+- geração de pedidos de venda a partir do catálogo
+- controle de movimentações de estoque
+- dashboard de administração
 
-Depois testa no terminal:
+A arquitetura do projeto separa o back-end, implementado em Node.js e Express, do front-end, baseado em HTML, CSS e JavaScript com consumo de API via `fetch`. O banco de dados é MySQL e a autenticação é tratada com sessões e criptografia de senha.
 
-```bash
-node -v
-npm -v
-```
+## Tecnologias utilizadas
 
-Se aparecer versão → ✅ ok
+- Node.js
+- Express
+- MySQL
+- JavaScript
+- HTML
+- CSS
+- Bootstrap
+- Multer
+- bcrypt
+- express-session
+- dotenv
+- cors
 
----
+## UML — Diagrama de caso de uso
 
-## ✅ 2. Criar o projeto
+O sistema ERP envolve dois atores principais:
 
-Na pasta onde você quer o sistema:
+- Administrador
+- Cliente (Catálogo)
 
-```bash
-mkdir projetointegrador
-cd projetointegrador
-```
+Os casos de uso principais incluem:
 
----
+- Cadastro e gestão de usuários
+- Cadastro de clientes, fornecedores, categorias e produtos
+- Acesso ao catálogo público
+- Inclusão de produtos no carrinho
+- Geração de pedidos de venda
 
-## ✅ 3. Inicializar o projeto Node
+![UML - Diagrama de Caso de Uso](u.imagens/uml.png)
 
-```bash
-npm init -y
-```
+> Substitua a imagem acima pelo diagrama real do projeto.
 
-Isso cria o:
+## Fluxogramas
 
-📄 `package.json`
+### 1. Cadastro de Cliente
 
----
+Fluxo principal de cadastro de cliente, desde o formulário de dados até a gravação em banco de dados.
 
-## ✅ 4. Instalar dependências essenciais
+![Fluxograma Cadastro de Cliente](u.imagens/fluxoCliente.png)
 
-Para um sistema web básico:
+> Substitua a imagem acima pelo fluxograma real do cadastro de cliente.
 
-```bash
-npm install express
-```
+### 2. Cadastro de Produto
 
-Recomendado também:
+Fluxo de cadastro de produto, com validação de campos, upload de imagem e persistência do registro.
 
-```bash
-npm install nodemon --save-dev
-```
+![Fluxograma Cadastro de Produto](u.imagens/fluxoProduto.png)
 
-📌 O que cada um faz:
+> Substitua a imagem acima pelo fluxograma real do cadastro de produto.
 
-* `express` → servidor web
-* `nodemon` → reinicia automaticamente o servidor
+### 3. Compra no Catálogo
 
----
+Fluxo de compra no catálogo público, passando pela seleção de produto, carrinho e fechamento de pedido.
 
-## ✅ 5. Criar estrutura de pastas
+![Fluxograma Compra no Catálogo](u.imagens/fluxoCatalogo.png)
 
-Crie exatamente assim:
+> Substitua a imagem acima pelo fluxograma real da compra no catálogo.
 
-```
-projetointegrador/
-│
-├── sistema/
-│   ├── config/
-│   ├── controller/
-│   ├── css/
-│   ├── js/
-│   ├── pages/
-│   ├── uploads/
-│   └── app.js
-│
+## Wireframe — Estrutura das telas
+
+A seguir, estão as telas principais previstas no sistema.
+
+### Tela inicial do sistema
+
+![Wireframe Tela Inicial](u.imagens/wireframeIndex.png)
+
+### Carrinho de compras
+
+![Wireframe Carrinho](u.imagens/wireframeCarrinho.png)
+
+### Cadastro de Cliente
+
+![Wireframe Cadastro de Cliente](u.imagens/wireframeClientes.png)
+
+### Novo Cliente
+
+![Wireframe Novo Cliente](u.imagens/wireframeClientesInserir.png)
+
+> Substitua as imagens acima pelos wireframes reais, se disponíveis.
+
+## DER — Diagrama Entidade Relacionamento
+
+O DER descreve os relacionamentos entre usuários, clientes, fornecedores, produtos, categorias, pedidos e itens de venda.
+
+![Diagrama Entidade Relacionamento](u.imagens/der.png)
+
+> Substitua a imagem acima pelo DER real do projeto.
+
+## Aplicação de Back-End
+
+A aplicação de back-end é responsável pela lógica do sistema, processamento das requisições e comunicação com o banco de dados. Nessa camada são realizadas validações, regras de negócio e operações de cadastro, consulta, atualização e exclusão de dados, garantindo a integridade e segurança das informações.
+
+Tecnologias:
+
+- Node.js
+- Express
+- MySQL
+
+Estrutura:
+
+- `/controller`
+- `/js`
+- `/routes`
+- `/pages`
+- `/app.js`
+
+Funcionalidades:
+
+- API REST
+- CRUD completo
+- Autenticação
+- Filtros
+
+## Aplicação Front-end
+
+A aplicação de front-end corresponde à interface do sistema, permitindo a interação do usuário com as funcionalidades disponíveis. É responsável pela visualização dos dados e envio de requisições ao back-end, proporcionando uma navegação simples e eficiente.
+
+Tecnologias:
+
+- HTML
+- CSS
+- Bootstrap
+- JavaScript (fetch API)
+
+Funcionalidades:
+
+- Consumo da API via fetch
+- Modais para cadastro
+- Tabelas dinâmicas
+- Filtros
+- Carrinho de compras
+- Login
+
+## Funcionalidades principais
+
+- API REST com CRUD completo
+- autenticação de usuário
+- filtros e tabelas dinâmicas
+- modais de cadastro
+- catálogo público com carrinho de compras
+- conversão de pedido do catálogo em pedido de venda
+- controle de saída de estoque
+
+## Estrutura de pastas
+
+```text
+ProjetoIntegrador/
+├── LICENSE
+├── readme.md
 ├── package.json
-└── server.js
+├── package-lock.json
+├── server.js
+├── instalacaoNode.md
+├── erp_loja.sql
+├── Projeto Integrador.docx
+├── Desenvolvimento Projeto Integrador..docx
+├── sistema/
+│   ├── app.js
+│   ├── server.js
+│   ├── vercel.json
+│   ├── config/
+│   │   ├── db.js
+│   │   └── upload.js
+│   ├── controller/
+│   │   ├── auth.js
+│   │   ├── catalogo.js
+│   │   ├── categorias.js
+│   │   ├── clientes.js
+│   │   ├── fornecedores.js
+│   │   ├── pedido.js
+│   │   ├── produtos.js
+│   │   ├── usuarios.js
+│   │   └── vendas.js
+│   ├── css/
+│   ├── img/
+│   ├── js/
+│   ├── layout/
+│   ├── middleware/
+│   ├── pages/
+│   ├── sql/
+│   └── uploads/
+└── uploads/
+    └── produtos/
 ```
 
-## ✅ 6. Rodar o projeto
+## Pré-requisitos
 
-No terminal:
+Antes de instalar e executar o projeto, verifique se o seu ambiente atende aos seguintes requisitos:
+
+- Node.js instalado (versão 16 ou superior recomendada)
+- npm instalado
+- MySQL instalado e em execução
+- Navegador web moderno
+- Editor de texto ou IDE (por exemplo, Visual Studio Code)
+
+## Instalação
+
+1. Clone o repositório:
 
 ```bash
-node server.js
+git clone https://github.com/Emerdcp/ProjetoIntegrador.git
 ```
 
-ou com nodemon:
+2. Acesse a pasta do projeto:
 
 ```bash
-npx nodemon server.js
+cd ProjetoIntegrador
 ```
 
----
+3. Instale as dependências:
 
-## ✅ 7. Acessar
-
-Abra no navegador:
-
+```bash
+npm install
 ```
+
+4. Crie a base de dados MySQL e importe o esquema em `erp_loja.sql` ou os scripts da pasta `sistema/sql/`.
+
+5. Configure variáveis de ambiente criando um arquivo `.env` na raiz do projeto. Exemplo:
+
+```env
+DB_HOST=localhost
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_NAME=nome_do_banco
+PORT=3000
+```
+
+6. Ajuste a conexão com o banco de dados em `sistema/config/db.js`, caso necessário.
+
+## Como executar o projeto
+
+Siga estes passos para executar o sistema localmente:
+
+1. Abra o terminal na raiz do projeto.
+2. Verifique se o MySQL está em execução.
+3. Instale as dependências se ainda não estiverem instaladas:
+
+```bash
+npm install
+```
+
+4. Inicie o servidor:
+
+```bash
+npm start
+```
+
+5. Abra o navegador e acesse:
+
+```text
 http://localhost:3000
 ```
 
-## 🚀 ETAPA 8 — Ajuste da estrutura
+> Durante o desenvolvimento, você também pode usar:
+>
+> ```bash
+> npx nodemon server.js
+> ```
 
-Fica assim:
+## Scripts disponíveis
 
-projetointegrador/
-│
-├── sistema/
-│   ├── config/
-│   │   └── db.js       
-│   ├── controller/
-│   │   ├── produtos.js 
-│   │   └── usuarios.js  
-│   ├── css/
-│   ├── img/            
-│   ├── js/
-│   │   └── index.js    
-│   │   └── cadastroUsuario.js  
-|   ├── layout/
-|   │   ├── header.html
-|   │   ├── menu.html
-|   │   └── footer.html
-│   ├── pages/
-│   │   ├── index.html  
-│   │   └── usuario.html
-│   └── app.js
-│
-├── server.js
-└── package.json
+- `npm start`: inicia o servidor usando `node server.js`
+- `npm test`: script padrão sem testes configurados
 
-
-
-🎯 O QUE VAMOS IMPLEMENTAR
-
-✔ login com senha criptografada (bcrypt)
-✔ criação de sessão
-✔ validar usuário logado
-✔ proteger rotas
-✔ controlar acesso por perfil (A, G, O)
-
-🚀 1. INSTALAR DEPENDÊNCIA
-
-No terminal:
+Exemplo:
 
 ```bash
-npm install express-session bcrypt
+npm start
 ```
 
-No terminal, ai na raiz do projeto:
+## Exemplo de uso
 
-```bash
-npm install multer
-```
+Após iniciar o servidor:
+
+1. Acesse `http://localhost:3000`
+2. Faça login com um usuário cadastrado
+3. Acesse o painel administrativo
+4. Cadastre ou edite clientes, fornecedores, produtos e categorias
+5. Abra o catálogo público e adicione produtos ao carrinho
+6. Converta o carrinho em pedido de venda e acompanhe a saída de estoque
+
+## Licença
+
+Este projeto está licenciado sob a licença `ISC`.
+
+## Links úteis
+
+- Repositório GitHub: https://github.com/Emerdcp/ProjetoIntegrador/
+- Demo do sistema: https://emerdcp.github.io/ProjetoIntegrador/sistema/pages/
